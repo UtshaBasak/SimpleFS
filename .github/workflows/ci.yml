@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Build and run the test suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install xxd
+        run: |
+          if ! command -v xxd > /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y xxd || sudo apt-get install -y vim-common
+          fi
+          xxd --version || true
+
+      - name: Record the toolchain version
+        run: gcc --version
+
+      # The README claims both files compile with zero warnings, so -Werror
+      # turns any regression into a failed build rather than ignored output.
+      - name: Compile simplefs_builder
+        run: gcc -Wall -Wextra -Werror -std=c11 simplefs_builder.c -o simplefs_builder
+
+      - name: Compile simplefs_adder
+        run: gcc -Wall -Wextra -Werror -std=c11 simplefs_adder.c -o simplefs_adder
+
+      - name: Run the test suite
+        run: ./run_tests.sh

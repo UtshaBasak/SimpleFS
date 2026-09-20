@@ -1,5 +1,7 @@
 # SimpleFS
 
+[![CI](https://github.com/UtshaBasak/SimpleFS/actions/workflows/ci.yml/badge.svg)](https://github.com/UtshaBasak/SimpleFS/actions/workflows/ci.yml)
+
 A minimal Unix-style file system implemented in C on top of a single 256 KiB
 binary image file. Built for **CSE 321 (Operating Systems)**, Lab Term
 Project, Summer 2026 — Section 06.
@@ -93,6 +95,10 @@ Requires `gcc` and `xxd`; run it from a Linux/WSL shell.
 Root directory only — no subdirectories, no path traversal. No delete,
 rename, links, permissions, timestamps, journaling or caching. Source files
 must live in the current working directory.
+
+## License
+
+Released under the MIT License — see [`LICENSE`](LICENSE).
 
 ## Author
 
