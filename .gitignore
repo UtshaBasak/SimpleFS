@@ -1,0 +1,15 @@
+# Compiled binaries
+simplefs_builder
+simplefs_adder
+*.o
+*.exe
+
+# Generated file-system images
+*.img
+
+# Test harness scratch directory
+testrun/
+
+# Course materials (not ours to redistribute) and personal study notes
+*.pdf
+SimpleFS_Viva_Prep.html

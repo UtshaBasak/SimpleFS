@@ -1,0 +1,12 @@
+# Normalise to LF in the repository
+* text=auto
+
+# Must stay LF so the script runs on Linux/WSL
+*.sh text eol=lf
+
+# C sources and headers
+*.c  text eol=lf
+*.h  text eol=lf
+
+# Generated images are binary
+*.img binary
