@@ -1,0 +1,15 @@
+# Dependabot configuration
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# SimpleFS is plain C with no package manager, so there are no library
+# dependencies to track. The only versioned dependencies in the repository
+# are the actions pinned in .github/workflows/ci.yml.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
